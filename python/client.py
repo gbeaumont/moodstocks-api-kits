@@ -43,7 +43,7 @@ class MoodstocksAPI:
      MultipartPostHandler.MultipartPostHandler )
 
   def __get_request(self, ep, params):
-    return self.opener.open(ep, urllib.urlencode(params))
+    return self.opener.open( "%s?%s" % (ep, urllib.urlencode(params)) )
 
   def __results(self, ans):
     return json.loads(ans.read())["results"]
